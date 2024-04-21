@@ -16,7 +16,7 @@ const sessionActive = JSON.parse(localStorage.getItem("user"));
                 confirmButtonColor: '#FF0000',
             }).then((result) => {
                 console.log(result)
-                const url = `${location.protocol}//${window.location.host}/Proyecto/views/Login.html`
+                const url = `${location.protocol}//${window.location.host}/`
                     window.location.href = url;
             });
     }

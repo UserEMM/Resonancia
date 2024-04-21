@@ -29,7 +29,7 @@ var productPrice = match ? parseFloat(match[1]) : null;
         amount: amount,
         productCharge: productPrice
     };
-    axios.post('http://127.0.0.1:4001/api/complete-purchase',body)
+    axios.post('http://localhost:4001/api/complete-purchase',body)
     .then(response => {
         if (response.data === true) {
             createPurchase();

@@ -1,7 +1,7 @@
 $(document).ready(() => {
     const sessionActive = JSON.parse(localStorage.getItem("user"));    
     if (sessionActive) {
-        const url = `${location.protocol}//${window.location.host}/Proyecto/views/index.html`
+        const url = `${location.protocol}//${window.location.host}/`
         window.location.href = url;
     }
     //si el usuario quiere moverse a registro ya logeado, lo devuelve a la pagina de tienda
@@ -258,7 +258,7 @@ const createUser = () => {
                 .then((result) => {
                     console.log(result)
                     if (result.isConfirmed) {
-                        const url = `${location.protocol}//${window.location.host}/Proyecto/views/Login.html`
+                        const url = `${location.protocol}//${window.location.host}/Login`
                         window.location.href = url;
                         deleteDataTokens();
                     }
@@ -313,7 +313,7 @@ const timeoutCounter = () => {
 }
 
 function redirectToLoginPage() {
-    const url = `${location.protocol}//${window.location.host}/Proyecto/views/Login.html`;
+    const url = `${location.protocol}//${window.location.host}/`;
     window.location.href = url;
 }
 

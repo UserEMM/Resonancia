@@ -5,7 +5,7 @@ $(document).ready(function () {
 
 //Redirección y asignación de parámetros a la URL para visualizar un producto específico
 const viewProduct = (id) => {
-    const url = `${location.protocol}//${window.location.host}/Proyecto/views/product.html?id=${id}`
+    const url = `/product?id=${id}`;
     window.location.href = url;
 }
 

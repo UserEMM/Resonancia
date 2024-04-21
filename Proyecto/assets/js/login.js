@@ -2,7 +2,7 @@
 $(document).ready(() => {
     const sessionActive = JSON.parse(localStorage.getItem("user"));    
     if (sessionActive) {
-        const url = `${location.protocol}//${window.location.host}/Proyecto/views/index.html`
+        const url = `${location.protocol}//${window.location.host}/`
         window.location.href = url;
     }
 
@@ -215,7 +215,7 @@ const moveUserToIndex = () => {
             const { _id, FirstName, LastName, Email, State, Canton } = response.data 
             const user = { _id, FirstName, LastName, Email, State, Canton }
             localStorage.setItem("user", JSON.stringify(user));//setteo del user con el array
-            const url = `${location.protocol}//${window.location.host}/Proyecto/views/index.html`
+            const url = `${location.protocol}//${window.location.host}/`
             window.location.href = url;
             actionRegistered = "The user has logged in to the system successfully."
             LogAction(actionRegistered);
@@ -280,7 +280,7 @@ const timeoutCounter = () => {
 }
 
 function redirectToLoginPage() {
-    const url = `${location.protocol}//${window.location.host}/Proyecto/views/Login.html`;
+    const url = `${location.protocol}//${window.location.host}/Login`;
     window.location.href = url;
 }
 

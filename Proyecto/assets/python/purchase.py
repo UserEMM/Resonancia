@@ -35,4 +35,4 @@ def complete_purchase():
         return jsonify(False)
 
 if __name__ == '__main__':
-    app.run(debug=True, port=4001)
+    app.run(debug=True, host='localhost', port=4001)
