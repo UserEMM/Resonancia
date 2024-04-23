@@ -21,10 +21,10 @@ const createOptions = () => {//si existe localstorage del user, va crear un head
             <li class="nav-item header__nav__links__item">
                 <a class="nav-link" href="/Registro">Register</a>
             </li>`}
-        <li class="nav-item header__nav__links__item">
+        <li class="nav-item header__nav__links__item" contactUs>
             <a class="nav-link" href="/contactUs">Contact</a>
         </li>
-        <li class="nav-item header__nav__links__item">
+        <li class="nav-item header__nav__links__item aboutUs">
             <a class="nav-link" href="/aboutUs">About Us</a>
         </li>`;
     $("#header-options").append(options);
@@ -43,6 +43,7 @@ const closeActiveSession = () => {//mientras exista el localstorage, va darnos o
           }).then((result) => {
             if (result.isConfirmed) {
                 localStorage.removeItem("user");
+                localStorage.removeItem("introCalled");
                 const url = `${location.protocol}//${window.location.host}/Login`
                 window.location.href = url;
             }

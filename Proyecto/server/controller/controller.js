@@ -485,6 +485,42 @@ const findIdDocument = async (req, res) => {
   }
 }
 
+//python a javascript
+const completePurchase = async (req, res) => {
+  try {
+    console.log('Datos recibidos:', req.body);
+    const { creditCard, monthExpiration, yearExpiration, cvv, amount, productCharge } = req.body;
+    const remainingAmount = amount - productCharge;
+    if (remainingAmount < 0 || !creditCard || creditCard.length !== 16 || !(/^\d+$/.test(creditCard))) {
+      console.log("fallo de digitos")
+        return res.json(false);
+    }
+
+    const currentYear = new Date().getFullYear();
+const currentMonth = new Date().getMonth() + 1;
+
+if (Number(yearExpiration) < currentYear ||
+    (Number(yearExpiration) === currentYear && Number(monthExpiration) <= currentMonth)) {
+    console.log("La tarjeta de crédito ha expirado.");
+    return res.json(false);
+}
+
+    if (cvv.length !== 3 || !(/^\d+$/.test(cvv))) {
+      console.log("fallo de cvv")
+        return res.json(false);
+    }
+
+    // Procesar la compra y devolver true si es exitosa
+    // ...
+
+    console.log('Compra completada exitosamente');
+    return res.json(true);
+  } catch (error) {
+      console.error('Error al completar la compra:', error);
+      return res.status(500).json(false);
+  }
+};
+
 
 module.exports = {
   createUser,
@@ -505,5 +541,6 @@ module.exports = {
   createLog,
   getDollarValue,
   findIdDocument,
-  validateIdDocument
+  validateIdDocument,
+  completePurchase
 };

@@ -9,7 +9,7 @@ const path = require('path');
 
 //controller
 const { createUser, validateUser,validateQuestion, validateEmail,updateUserRecovery, inactiveAccount, createItems, getItemsByCategory, getItemById, createOrder, serviceOrder,
-    createAccountToken, validateCreationToken, sendLocal, DeleteToken, createLog, getDollarValue, findIdDocument,validateIdDocument} = require("../Proyecto/server/controller/controller");
+    createAccountToken, validateCreationToken, sendLocal, DeleteToken, createLog, getDollarValue, findIdDocument,validateIdDocument,completePurchase} = require("../Proyecto/server/controller/controller");
 
 const connectDB = require('./server/database/connection');
 const app = express();
@@ -99,6 +99,7 @@ app.get('/get-item-by-id/:id', getItemById);
 //API Orders
 app.post('/create-order', createOrder);
 app.post('/service-order', serviceOrder);
+app.post('/complete-purchase', completePurchase);
 //API Tokens
 app.post('/create-account-token', createAccountToken);
 app.post('/validate-creation-token', validateCreationToken);
