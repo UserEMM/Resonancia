@@ -7,10 +7,11 @@ $(document).ready(() => {
 
 
 const createCategory = (category) => {
-    
     axios.get(`http://localhost:4001/get-item/${category}`)
         .then((response) => {
             const { data } = response;
+
+            console.log(data)
             
             data.forEach(item => {
                 //llamado a la base de datos con html dinámico
